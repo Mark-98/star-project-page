@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fafbff">
+  <meta name="description" content="STAR — NeurIPS 2026 Poster: Control First, Robustness Next. A two-stage framework for robust visual reinforcement learning.">
+  <meta property="og:title" content="STAR — Control First, Robustness Next">
+  <meta property="og:description" content="NeurIPS 2026 Poster. Learn control first; adapt visual robustness offline without retraining the controller.">
+  <meta property="og:url" content="https://mark-98.github.io/star-project-page/">
+  <link rel="canonical" href="https://mark-98.github.io/star-project-page/">
+  <title>STAR — Control First, Robustness Next</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="video-manifest.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="STAR project home"><span class="brand-icon">S</span><span>STAR<span class="brand-dot">.</span></span></a>
+      <nav class="primary-nav" aria-label="Page sections">
+        <a href="#overview">Overview</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#videos">Videos</a>
+        <a href="#citation">Citation</a>
+      </nav>
+      <a class="nav-paper" href="paper.pdf" target="_blank" rel="noopener">Read paper <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-wash" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy hero-copy-wide">
+          <div class="hero-kicker"><span class="kicker-point"></span> NeurIPS 2026 <span class="kicker-divider">/</span> POSTER</div>
+          <p class="eyebrow">Separate Then Align Representations</p>
+          <h1 id="hero-title">Control First<span class="hero-period">.</span><br><span class="hero-muted">Robustness Next</span><span class="hero-period">.</span></h1>
+          <p class="hero-subtitle">Decoupled Representation Learning for Visual RL Generalization</p>
+          <div class="paper-authors" aria-label="Authors">Chanyong Heo <span>·</span> Hyelyn Jeong <span>·</span> Jongchan Park <span>·</span> Seungjun Oh <span>·</span> Yusung Kim</div>
+          <div class="paper-affiliations">Sungkyunkwan University · Department of Artificial Intelligence · Department of Computer Science and Engineering</div>
+          <p class="hero-description">STAR learns a control-relevant representation first, then aligns a robust visual pathway to the frozen control interface <strong>offline</strong>—without additional environment interaction or controller retraining.</p>
+          <div class="hero-actions hero-resource-buttons">
+            <a class="button button-primary" href="paper.pdf" target="_blank" rel="noopener"><span aria-hidden="true">▤</span> Paper <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#videos"><span aria-hidden="true">▶</span> Videos</a>
+          </div>
+          <div class="hero-visual hero-visual-wide" aria-label="Overview of STAR's two-stage principle">
+            <div class="hero-visual-top"><span>THE CENTRAL IDEA</span><span>01 / 02</span></div>
+            <div class="hero-visual-rail">
+              <div class="hero-stage stage-one">
+                <div class="stage-count">01</div>
+                <div class="stage-head"><span class="stage-symbol">◎</span><span class="stage-kind">CONTROL LEARNING</span></div>
+                <h2>Establish the reference.</h2>
+                <p>Learn the control encoder and policy from source observations using weak augmentation.</p>
+                <div class="stage-pill-list"><span>DrQ-style RL</span><span>Forward dynamics</span></div>
+              </div>
+              <div class="hero-connector hero-connector-inline"><span>Freeze the control interface</span><span aria-hidden="true">→</span></div>
+              <div class="hero-stage stage-two">
+                <div class="stage-count">02</div>
+                <div class="stage-head"><span class="stage-symbol">◇</span><span class="stage-kind">OFFLINE ROBUSTIFICATION</span></div>
+                <h2>Recover it under shifts.</h2>
+                <p>Train only the robust encoder and aligner to match that fixed reference.</p>
+                <div class="stage-pill-list"><span>Replay buffer</span><span>Frozen controller</span></div>
+              </div>
+            </div>
+            <div class="hero-visual-bottom"><span class="status-light"></span> SAME CONTROLLER, ROBUST VISUAL PATHWAY</div>
+          </div>
+          <div class="hero-footnotes"><span><span class="tick">✓</span> Fixed downstream policy</span><span><span class="tick">✓</span> Offline alignment</span><span><span class="tick">✓</span> Zero-shot evaluation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="overview">
+      <div class="container intro-layout">
+        <div class="section-index">THE IDEA <span>↘</span></div>
+        <div>
+          <h2 class="statement">Visual robustness should not come at the expense of <em>learning to control.</em></h2>
+          <p class="large-paragraph">Conventional approaches often optimize control and robustness through the same evolving visual representation. STAR changes the order: <strong>learn a reliable control interface first; robustify the observation pathway afterward.</strong> The downstream controller remains untouched.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section motivation-section" id="motivation">
+      <div class="container">
+        <div class="section-header">
+          <div><span class="section-label">01 <span>/</span> MOTIVATION</span><h2>Why separate<br>control and robustness?</h2></div>
+          <p class="section-deck">Robustness objectives and the critic can push on the same representation while online training is still changing its meaning.</p>
+        </div>
+        <div class="motivation-comparison">
+          <article class="compare-card compare-coupled">
+            <span class="compare-caption">THE COUPLED PARADIGM</span>
+            <div class="mini-flow"><span>Control objective</span><b>+</b><span>Robustness objective</span></div>
+            <div class="mini-flow-arrow">↓</div>
+            <div class="flow-end">One changing visual encoder</div>
+            <p>Two learning signals jointly modify the representation during actor–critic training.</p>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">→</div>
+          <article class="compare-card compare-star">
+            <span class="compare-caption">STAR: SEPARATE, THEN ALIGN</span>
+            <div class="mini-flow"><span>Learn control</span><b>→</b><span>Freeze reference</span></div>
+            <div class="mini-flow-arrow">↓</div>
+            <div class="flow-end">Align only the visual pathway</div>
+            <p>A fixed reference turns online interference into offline representation recovery.</p>
+          </article>
+        </div>
+        <figure class="figure-panel diagnostic-panel">
+          <div class="figure-panel-head"><div><span class="figure-kicker">FIGURE 1 / EMPIRICAL DIAGNOSTIC</span><h3>Coupled learning shows higher drift and TD residuals.</h3></div><div class="figure-head-actions"><span class="figure-sidenote">DrQ normalized to 1.0</span><a href="assets/motivation_diagnostics.svg" target="_blank" rel="noopener">Enlarge SVG ↗</a></div></div>
+          <a class="figure-fullres-link diagnostic-fullres" href="assets/motivation_diagnostics.svg" target="_blank" rel="noopener" title="Open original vector figure at full resolution">
+            <picture><source srcset="assets/motivation_diagnostics.svg" type="image/svg+xml"><img src="assets/motivation_diagnostics.png" alt="Paper's Figure 1 comparing in-distribution return, representation drift and normalized temporal-difference error across DMC and Robosuite." loading="lazy" decoding="async"></picture>
+          </a>
+          <figcaption>Compared with DrQ, coupled-learning methods exhibit increased representation drift and normalized TD error. On Robosuite, the measured values reach <strong>4.54×</strong> and <strong>5.57×</strong>, respectively. These are diagnostics of association, not proof of causality. <span class="mobile-figure-note">On mobile, swipe across the figure to inspect the details.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section method-section" id="method">
+      <div class="container">
+        <div class="section-header">
+          <div><span class="section-label">02 <span>/</span> METHOD</span><h2>Two stages.<br>One fixed interface.</h2></div>
+          <p class="section-deck">STAR is the full framework. Post-Representation Alignment (PRA) is the offline second stage that recovers the control reference from perturbed observations.</p>
+        </div>
+        <figure class="figure-panel method-figure">
+          <div class="figure-panel-head"><div><span class="figure-kicker">FIGURE 2 / STAR FRAMEWORK</span><h3>From control-oriented learning to offline alignment</h3></div><div class="figure-head-actions"><span class="figure-sidenote">NeurIPS 2026 · Fig. 2</span><a href="assets/method_overview.svg" target="_blank" rel="noopener">Enlarge SVG ↗</a></div></div>
+          <div class="method-image"><a class="figure-fullres-link" href="assets/method_overview.svg" target="_blank" rel="noopener" title="Open original vector method diagram at full resolution">
+            <picture><source srcset="assets/method_overview.svg" type="image/svg+xml"><img src="assets/method_overview.png" alt="Two-stage architecture: Stage 1 trains a visual encoder with critic, actor and forward-dynamics model; Stage 2 freezes the control pathway and aligns a robust encoder and aligner to the reference latent." loading="lazy" decoding="async"></picture>
+          </a></div>
+          <figcaption>The reference encoder and downstream controller are fixed in Stage 2. Only the robust encoder and alignment module receive updates. <span class="mobile-figure-note">On mobile, swipe across the figure to inspect the details.</span></figcaption>
+        </figure>
+        <div class="step-grid">
+          <article class="step-card"><span class="step-head"><span class="step-number">STAGE 01</span><span class="step-icon">01 ↗</span></span><h3>Learn control</h3><p>Train a DrQ-style actor–critic on weakly augmented source observations. An auxiliary forward-dynamics objective helps form a control-relevant latent reference.</p><div class="step-detail">Critic loss + λ × dynamics loss</div></article>
+          <article class="step-card step-emphasis"><span class="step-head"><span class="step-number">STAGE 02 / PRA</span><span class="step-icon">02 ↗</span></span><h3>Align offline</h3><p>Initialize a robust encoder from the control encoder. Use the retained replay buffer with paired weak/strong views, and train the robust pathway against a frozen target.</p><div class="step-detail">Robust latent ≈ stopgrad(reference latent)</div></article>
+          <article class="step-card"><span class="step-head"><span class="step-number">INFERENCE</span><span class="step-icon">03 ↗</span></span><h3>Reuse the controller</h3><p>Replace the source encoder with the aligned robust encoder and adapter. Pass its features to the original actor or action-generation module unchanged.</p><div class="step-detail">No downstream policy retraining</div></article>
+        </div>
+        <div class="method-specs"><div><span class="spec-number">500K</span><span>Stage-1 RL environment steps</span></div><div><span class="spec-number">100K</span><span>Stage-2 offline updates (visual RL)</span></div><div><span class="spec-number">0</span><span>Additional environment steps in Stage 2</span></div><p>These budgets refer to the visual RL experiments. The Diffusion Policy adaptation uses a separate 20-epoch offline alignment schedule.</p></div>
+      </div>
+    </section>
+
+    <section class="section benchmark-section" id="benchmarks">
+      <div class="container">
+        <div class="section-header"><div><span class="section-label">03 <span>/</span> BENCHMARKS</span><h2>Robust across different<br>ways to change a scene.</h2></div><p class="section-deck">The paper evaluates a frozen control policy under changes in appearance, video backgrounds, and a separately adapted geometric-perturbation family.</p></div>
+        <div class="bench-grid">
+          <article class="bench-card"><div class="bench-top"><span class="bench-index">A / DMC-GB</span><span class="bench-count">4 tasks</span></div><h3>Visual control</h3><p>Walker Walk, Cheetah Run, Finger Spin and Cartpole SwingUp. Color and video backgrounds probe appearance robustness.</p><figure><div class="bench-image-scroll"><a class="bench-hires-link" href="assets/dmc_shift_examples.png" target="_blank" rel="noopener" aria-label="Open DMC-GB shift examples in full resolution"><img src="assets/dmc_shift_examples.png" alt="DMC-GB Walker Walk training appearance, Color Easy, Color Hard, Video Easy and Video Hard." loading="lazy"></a></div><figcaption><span>Original · Color Easy/Hard · Video Easy/Hard</span><span class="figure-zoom-hint">Open high-res ↗</span><span class="mobile-swipe-hint">Swipe image →</span></figcaption></figure></article>
+          <article class="bench-card"><div class="bench-top"><span class="bench-index">B / ROBOSUITE</span><span class="bench-count">2 tasks</span></div><h3>Contact-rich manipulation</h3><p>Door and TwoArmPegInHole evaluate visual generalization with interaction-sensitive objects and geometry.</p><figure><div class="bench-image-scroll"><a class="bench-hires-link" href="assets/robosuite_shift_examples.png" target="_blank" rel="noopener" aria-label="Open Robosuite shift examples in full resolution"><img src="assets/robosuite_shift_examples.png" alt="Robosuite task scene under Original, Easy, Medium, Hard and Video visual conditions." loading="lazy"></a></div><figcaption><span>Original · Easy · Medium · Hard · Video</span><span class="figure-zoom-hint">Open high-res ↗</span><span class="mobile-swipe-hint">Swipe image →</span></figcaption></figure></article>
+          <article class="bench-card"><div class="bench-top"><span class="bench-index">C / DIFFUSION POLICY</span><span class="bench-count">2 tasks</span></div><h3>Pretrained visuomotor policy</h3><p>PickPlaceCan and NutAssemblySquare test whether the same offline alignment principle works for a fixed diffusion action module.</p><figure><div class="bench-image-scroll"><a class="bench-hires-link" href="assets/diffusion_square_shifts.png" target="_blank" rel="noopener" aria-label="Open Diffusion Policy Square shifts in full resolution"><img src="assets/diffusion_square_shifts.png" alt="Square manipulation setting with progressively more severe Easy, Medium and Hard visual shifts." loading="lazy"></a></div><figcaption><span>Square: Easy · Medium · Hard</span><span class="figure-zoom-hint">Open high-res ↗</span><span class="mobile-swipe-hint">Swipe image →</span></figcaption></figure></article>
+        </div>
+        <aside class="geometry-note"><div class="geometry-note-icon">↗</div><div><strong>Beyond appearance: a shift-aware geometry extension</strong><p>Rotation and translation videos correspond to STAR(G), in which the Stage-2 augmentation is matched to the evaluated geometric family. They should not be interpreted as results of the default random-overlay variant STAR(O).</p></div><a href="#videos">See geometric demos <span aria-hidden="true">→</span></a></aside>
+      </div>
+    </section>
+
+    <section class="section results-section" id="results">
+      <div class="container">
+        <div class="section-header"><div><span class="section-label">04 <span>/</span> MAIN RESULTS</span><h2>Preserve control.<br>Improve generalization.</h2></div><p class="section-deck">Aggregate returns are averaged over the benchmark's reported evaluation conditions. Diffusion Policy uses success rate (%), not episodic return.</p></div>
+        <div class="result-highlights">
+          <article><span class="highlight-heading">DMC-GB / shifted return</span><div class="highlight-compare"><span>709.1</span><b>→</b><strong>795.7</strong></div><p>Best competing baseline (SimGRL) → STAR</p><div class="highlight-track"><span style="width: 89.1%"></span></div></article>
+          <article><span class="highlight-heading">ROBOSUITE / shifted return</span><div class="highlight-compare"><span>257.0</span><b>→</b><strong>380.5</strong></div><p>Best competing baseline (SECANT) → STAR</p><div class="highlight-track"><span style="width: 67.5%"></span></div></article>
+          <article><span class="highlight-heading">SQUARE HARD / SUCCESS</span><div class="highlight-compare"><span>15.3%</span><b>→</b><strong>67.3%</strong></div><p>Pretrained Diffusion Policy → DP + PRA</p><div class="highlight-track"><span style="width: 22.7%"></span></div></article>
+        </div>
+        <div class="data-panel">
+          <div class="data-panel-top"><div><span class="figure-kicker">PAPER RESULTS</span><h3>Quantitative comparisons</h3></div><p>Choose a table to inspect the reported numbers.</p></div>
+          <div class="results-tabs" role="tablist" aria-label="Results tables">
+            <button type="button" class="results-tab is-active" data-result-tab="dmc" role="tab" aria-selected="true" tabindex="0">DMC-GB</button>
+            <button type="button" class="results-tab" data-result-tab="robosuite" role="tab" aria-selected="false" tabindex="-1">Robosuite</button>
+            <button type="button" class="results-tab" data-result-tab="dp" role="tab" aria-selected="false" tabindex="-1">Diffusion Policy</button>
+            <button type="button" class="results-tab" data-result-tab="ablation" role="tab" aria-selected="false" tabindex="-1">Ablation</button>
+            <button type="button" class="results-tab" data-result-tab="geometry" role="tab" aria-selected="false" tabindex="-1">Geometry</button>
+          </div>
+          <section class="results-view" data-result-panel="dmc"><div class="data-table-wrap"><table class="data-table"><caption>DMC-GB average episodic return over four tasks</caption><thead><tr><th>Setting</th><th>DrQ</th><th>SVEA</th><th>SGQN</th><th>SMG</th><th>SimGRL</th><th>SECANT</th><th>STAR</th></tr></thead><tbody><tr><th>Original avg.</th><td>826.8</td><td>759.3</td><td>756.0</td><td>766.3</td><td>753.3</td><td>795.0</td><td class="best-value">857.5</td></tr><tr class="emphasis-row"><th>Shifted avg.</th><td>459.9</td><td>582.1</td><td>657.8</td><td>706.4</td><td>709.1</td><td>587.3</td><td class="best-value">795.7</td></tr></tbody></table></div><p class="table-footnote">Appearance-based shifts: Color Easy/Hard and Video Easy/Hard. Mean over four seeds; shifted average excludes Original and covers 16 task–shift pairs.</p></section>
+          <section class="results-view" data-result-panel="robosuite" hidden><div class="data-table-wrap"><table class="data-table"><caption>Robosuite average episodic return over two tasks</caption><thead><tr><th>Setting</th><th>DrQ</th><th>SVEA</th><th>SGQN</th><th>SMG</th><th>SimGRL</th><th>SECANT</th><th>STAR</th></tr></thead><tbody><tr><th>Original avg.</th><td>315.5</td><td>238.5</td><td>280.5</td><td>291.0</td><td>266.5</td><td>334.0</td><td class="best-value">464.0</td></tr><tr class="emphasis-row"><th>Shifted avg.</th><td>98.3</td><td>158.9</td><td>194.4</td><td>195.5</td><td>175.0</td><td>257.0</td><td class="best-value">380.5</td></tr></tbody></table></div><p class="table-footnote">Door and TwoArmPegInHole; shifted average covers the paper's Easy, Medium, Hard and Video conditions (8 task–shift pairs), excluding Original.</p></section>
+          <section class="results-view" data-result-panel="dp" hidden><div class="data-table-wrap"><table class="data-table"><caption>Diffusion Policy success rate (%) ± standard deviation</caption><thead><tr><th>Task</th><th>Method</th><th>Original</th><th>Easy</th><th>Medium</th><th>Hard</th></tr></thead><tbody><tr><th rowspan="2">Can</th><td>DP</td><td>100.0 ± 0.0</td><td>39.3 ± 4.1</td><td>22.0 ± 4.3</td><td>14.0 ± 3.3</td></tr><tr class="emphasis-row"><td>DP + PRA</td><td>99.3 ± 0.9</td><td class="best-value">72.0 ± 3.3</td><td class="best-value">62.0 ± 4.3</td><td class="best-value">41.3 ± 7.4</td></tr><tr class="group-divider"><th rowspan="2">Square</th><td>DP</td><td>96.0 ± 1.6</td><td>43.3 ± 3.4</td><td>28.0 ± 1.6</td><td>15.3 ± 2.5</td></tr><tr class="emphasis-row"><td>DP + PRA</td><td class="best-value">98.0 ± 0.0</td><td class="best-value">76.0 ± 2.8</td><td class="best-value">74.7 ± 5.2</td><td class="best-value">67.3 ± 0.9</td></tr></tbody></table></div><p class="table-footnote">DP + PRA adapts the visual representation pathway while keeping the pretrained diffusion action-generation module frozen.</p></section>
+          <section class="results-view" data-result-panel="ablation" hidden><div class="data-table-wrap"><table class="data-table"><caption>Stage-1 dynamics (Dyn) and Stage-2 alignment (S2): average return</caption><thead><tr><th>Benchmark</th><th>Evaluation</th><th>−Dyn, −S2</th><th>+Dyn, −S2</th><th>−Dyn, +S2</th><th>+Dyn, +S2</th></tr></thead><tbody><tr><th rowspan="2">DMC-GB</th><td>Original</td><td>852.5</td><td class="best-value">858.0</td><td>850.3</td><td>857.5</td></tr><tr class="emphasis-row"><td>Shifted</td><td>399.9</td><td>399.3</td><td>773.4</td><td class="best-value">795.7</td></tr><tr class="group-divider"><th rowspan="2">Robosuite</th><td>Original</td><td>319.5</td><td class="best-value">464.5</td><td>315.5</td><td>464.0</td></tr><tr class="emphasis-row"><td>Shifted</td><td>96.0</td><td>103.8</td><td>262.0</td><td class="best-value">380.5</td></tr></tbody></table></div><p class="table-footnote">Stage-2 alignment provides the major shifted-domain gain. Dynamics supervision improves reference quality, especially on Robosuite.</p></section>
+          <section class="results-view" data-result-panel="geometry" hidden><div class="data-table-wrap"><table class="data-table"><caption>Geometric-shift average episodic return over four DMC-GB tasks (NeurIPS 2026, Table 15)</caption><thead><tr><th>Setting</th><th>DrQ</th><th>SVEA (O)</th><th>SVEA† (G)</th><th>STAR (G)</th></tr></thead><tbody><tr><th>Rotation Easy</th><td>157.5</td><td>159.5</td><td>313.0</td><td class="best-value">825.5</td></tr><tr><th>Rotation Hard</th><td>100.0</td><td>102.4</td><td>180.5</td><td class="best-value">825.8</td></tr><tr><th>Shift Easy</th><td>119.3</td><td>129.9</td><td>462.3</td><td class="best-value">789.5</td></tr><tr><th>Shift Hard</th><td>75.8</td><td>89.7</td><td>153.5</td><td class="best-value">675.0</td></tr><tr class="emphasis-row"><th>Shifted avg.</th><td>113</td><td>120</td><td>277</td><td class="best-value">779</td></tr></tbody></table></div><p class="table-footnote">Per-shift rows: arithmetic means calculated from the four task means in NeurIPS Table 15 (rounded to 1 decimal). Final row: rounded benchmark averages as reported in the paper. † SVEA(G) is an <strong>external reference</strong> using different settings and five seeds; STAR(G) and in-paper evaluations use four seeds, so this is not a matched comparison. O: overlay augmentation; G: geometry-matched augmentation.</p></section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section videos-section" id="videos">
+      <div class="container">
+        <div class="section-header videos-header"><div><span class="section-label">05 <span>/</span> VIDEO DEMONSTRATIONS</span><h2>Generalization<br>in motion<span class="accent-period">.</span></h2></div><p class="section-deck">Explore task-level rollouts across appearance and geometric shifts. Select a benchmark, task and shift family. Each clip is labeled by benchmark, task and evaluation condition.</p></div>
+        <div class="video-workspace">
+          <div class="workspace-title"><span class="workspace-indicator"></span><strong>DEMONSTRATION EXPLORER</strong><span class="workspace-aside">EXPERIMENT ROLLOUTS</span></div>
+          <div class="gallery-main-tabs" role="tablist" aria-label="Video benchmark">
+            <button type="button" class="gallery-tab is-active" role="tab" aria-selected="true" tabindex="0" data-gallery="dmc">DMC-GB <span class="tab-count">32 videos</span></button>
+            <button type="button" class="gallery-tab" role="tab" aria-selected="false" tabindex="-1" data-gallery="robosuite">Robosuite <span class="tab-count">8 conditions</span></button>
+            <button type="button" class="gallery-tab" role="tab" aria-selected="false" tabindex="-1" data-gallery="dp">Diffusion Policy <span class="tab-count">6 videos</span></button>
+          </div>
+          <div class="gallery-body">
+            <div class="gallery-controls" id="gallery-controls" aria-label="Video filters"></div>
+            <div class="gallery-context" id="gallery-context"></div>
+            <div class="video-grid" id="video-grid" aria-live="polite"></div>
+            <div class="gallery-legend"><span><span class="legend-dot"></span> Videos play silently and loop when visible</span><span>Environment, task and shift labels stay visible during playback</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section takeaways-section" id="discussion"><div class="container"><div class="section-header"><div><span class="section-label">06 <span>/</span> DISCUSSION</span><h2>What the results<br>tell us.</h2></div><p class="section-deck">A two-stage design gives control representation learning and visual robustness adaptation separate, complementary roles.</p></div><div class="takeaway-grid"><article><span>01</span><h3>Control quality matters.</h3><p>A good reference latent supports the downstream policy; auxiliary dynamics supervision can strengthen that reference, particularly for manipulation.</p></article><article><span>02</span><h3>Alignment is the robustness mechanism.</h3><p>Matched ablations show large gains from adding PRA even without the Stage-1 dynamics objective.</p></article><article><span>03</span><h3>Policies remain untouched.</h3><p>PRA can adapt visual RL or a pretrained diffusion policy by changing the visual pathway rather than retraining action selection.</p></article></div><div class="limitation-note"><strong>Scope & limitations.</strong><p>Effectiveness depends on the quality of the fixed control reference. Geometric robustness requires an augmentation selected for the target transformation family, and the work does not establish robustness to arbitrary dynamics or task-semantic changes. The paper does not evaluate vision-language-action models.</p></div></div></section>
+
+    <section class="section citation-section" id="citation"><div class="container citation-layout"><div><span class="section-label">07 <span>/</span> CITATION</span><h2>Reference<br>the work.</h2><p>Cite the NeurIPS 2026 poster. Verify final proceedings metadata against the camera-ready record before external publication.</p></div><div class="citation-box"><div class="citation-toolbar"><span>BibTeX <span class="citation-neutral">/ NeurIPS 2026 Poster</span></span><button type="button" id="copy-citation">Copy BibTeX</button></div><pre id="bibtex">@inproceedings{heo2026star,
+  title     = {Control First, Robustness Next: Decoupled Representation Learning for Visual RL Generalization},
+  author    = {Heo, Chanyong and Jeong, Hyelyn and Park, Jongchan and Oh, Seungjun and Kim, Yusung},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026},
+  note      = {Poster}
+}</pre></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-layout"><a class="brand" href="#top"><span class="brand-icon">S</span><span>STAR<span class="brand-dot">.</span></span></a><span>Separate Then Align Representations · NeurIPS 2026 Poster</span><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>

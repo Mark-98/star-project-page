@@ -1,0 +1,116 @@
+{
+  "task": "can",
+  "difficulty": "easy",
+  "selected_by_outcome": true,
+  "dp_failure_ours_success_same_scene_and_demo": true,
+  "dp_success_is_a_different_episode": true,
+  "outcome_definition": "Robosuite task success at any step within the unchanged 400-step rollout.",
+  "video_method": "Render logged genuine simulator states; no re-simulation, upscaling, fabricated motion or policy-input resolution change.",
+  "videos": [
+    {
+      "model": "base",
+      "lane": 0,
+      "demo_id": 150,
+      "scene_id": 0,
+      "success": true,
+      "first_success_step": 123,
+      "states_file": "base_lane00.npz",
+      "visual_config": {
+        "texture_map": {
+          "floor": "WoodTiles",
+          "pp_table1": "PlasterGray",
+          "pp_table2": "WoodDark",
+          "table_legs": "Metal",
+          "wall": "PlasterGray"
+        },
+        "material_map": null,
+        "skybox_config": null,
+        "light_config": null
+      },
+      "video": "videos/easy/diffusion_policy_success.mp4",
+      "resolution": [
+        768,
+        768
+      ],
+      "simulation_render": [
+        768,
+        768
+      ],
+      "fps": 10,
+      "frames": 201,
+      "playback": "real time; 20 control steps per second",
+      "lossless_pixel_hash_verified": false
+    },
+    {
+      "model": "base",
+      "lane": 4,
+      "demo_id": 154,
+      "scene_id": 4,
+      "success": false,
+      "first_success_step": null,
+      "states_file": "base_lane04.npz",
+      "visual_config": {
+        "texture_map": {
+          "floor": "WoodTiles",
+          "pp_table1": "PlasterCream",
+          "pp_table2": "WoodDark",
+          "table_legs": "Metal",
+          "wall": "PlasterCream"
+        },
+        "material_map": null,
+        "skybox_config": null,
+        "light_config": null
+      },
+      "video": "videos/easy/diffusion_policy_failure.mp4",
+      "resolution": [
+        768,
+        768
+      ],
+      "simulation_render": [
+        768,
+        768
+      ],
+      "fps": 10,
+      "frames": 201,
+      "playback": "real time; 20 control steps per second",
+      "lossless_pixel_hash_verified": false
+    },
+    {
+      "model": "ours",
+      "lane": 4,
+      "demo_id": 154,
+      "scene_id": 4,
+      "success": true,
+      "first_success_step": 135,
+      "states_file": "ours_lane04.npz",
+      "visual_config": {
+        "texture_map": {
+          "floor": "WoodTiles",
+          "pp_table1": "PlasterCream",
+          "pp_table2": "WoodDark",
+          "table_legs": "Metal",
+          "wall": "PlasterCream"
+        },
+        "material_map": null,
+        "skybox_config": null,
+        "light_config": null
+      },
+      "video": "videos/easy/ours_success.mp4",
+      "resolution": [
+        768,
+        768
+      ],
+      "simulation_render": [
+        768,
+        768
+      ],
+      "fps": 10,
+      "frames": 201,
+      "playback": "real time; 20 control steps per second",
+      "lossless_pixel_hash_verified": false
+    }
+  ],
+  "comparison": "videos/easy/comparison.mp4",
+  "annotations": false,
+  "export_method": "Remove only title/footer padding; H.264 High, CRF 16; unchanged scene, frame count and timing."
+}

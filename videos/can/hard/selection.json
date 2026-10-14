@@ -1,0 +1,120 @@
+{
+  "task": "can",
+  "difficulty": "hard",
+  "selected_by_outcome": true,
+  "annotations": false,
+  "dp_failure_ours_success_same_scene_and_demo": true,
+  "dp_success_is_a_different_episode": true,
+  "outcome_definition": "First Robosuite task success or the 400-control-step timeout.",
+  "terminate_on_success": true,
+  "comparison_holds_finished_last_frame": true,
+  "video_method": "Render logged genuine simulator states; no re-simulation, upscaling, fabricated motion or policy-input resolution change.",
+  "videos": [
+    {
+      "model": "base",
+      "lane": 6,
+      "demo_id": 156,
+      "scene_id": 26,
+      "success": true,
+      "first_success_step": 115,
+      "episode_steps": 115,
+      "states_file": "base_lane06.npz",
+      "visual_config": {
+        "texture_map": {
+          "floor": "Custom18",
+          "pp_table1": "Custom31",
+          "pp_table2": "Custom24",
+          "table_legs": "Brass",
+          "wall": "Custom25"
+        },
+        "material_map": null,
+        "skybox_config": null,
+        "light_config": null
+      },
+      "video": "videos/hard/diffusion_policy_success.mp4",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "simulation_render": [
+        1024,
+        1024
+      ],
+      "fps": 10,
+      "frames": 59,
+      "terminal_control_step": 115,
+      "playback": "20 control steps per second; actual terminal state included"
+    },
+    {
+      "model": "base",
+      "lane": 0,
+      "demo_id": 150,
+      "scene_id": 20,
+      "success": false,
+      "first_success_step": null,
+      "episode_steps": 400,
+      "states_file": "base_lane00.npz",
+      "visual_config": {
+        "texture_map": {
+          "floor": "Custom15",
+          "pp_table1": "Custom31",
+          "pp_table2": "Custom16",
+          "table_legs": "Brass",
+          "wall": "Custom22"
+        },
+        "material_map": null,
+        "skybox_config": null,
+        "light_config": null
+      },
+      "video": "videos/hard/diffusion_policy_failure.mp4",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "simulation_render": [
+        1024,
+        1024
+      ],
+      "fps": 10,
+      "frames": 201,
+      "terminal_control_step": 400,
+      "playback": "20 control steps per second; actual terminal state included"
+    },
+    {
+      "model": "ours",
+      "lane": 0,
+      "demo_id": 150,
+      "scene_id": 20,
+      "success": true,
+      "first_success_step": 116,
+      "episode_steps": 116,
+      "states_file": "ours_lane00.npz",
+      "visual_config": {
+        "texture_map": {
+          "floor": "Custom15",
+          "pp_table1": "Custom31",
+          "pp_table2": "Custom16",
+          "table_legs": "Brass",
+          "wall": "Custom22"
+        },
+        "material_map": null,
+        "skybox_config": null,
+        "light_config": null
+      },
+      "video": "videos/hard/ours_success.mp4",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "simulation_render": [
+        1024,
+        1024
+      ],
+      "fps": 10,
+      "frames": 59,
+      "terminal_control_step": 116,
+      "playback": "20 control steps per second; actual terminal state included"
+    }
+  ],
+  "comparison": "videos/hard/comparison.mp4"
+}

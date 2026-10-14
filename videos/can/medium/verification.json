@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "videos": [
+    {
+      "video": "videos/medium/diffusion_policy_success.mp4",
+      "full_decode_passed": true,
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1024,
+          "height": 1024,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "10/1",
+          "nb_frames": "65"
+        }
+      ],
+      "format": {
+        "duration": "6.500000"
+      }
+    },
+    {
+      "video": "videos/medium/diffusion_policy_failure.mp4",
+      "full_decode_passed": true,
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1024,
+          "height": 1024,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "10/1",
+          "nb_frames": "201"
+        }
+      ],
+      "format": {
+        "duration": "20.100000"
+      }
+    },
+    {
+      "video": "videos/medium/ours_success.mp4",
+      "full_decode_passed": true,
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1024,
+          "height": 1024,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "10/1",
+          "nb_frames": "66"
+        }
+      ],
+      "format": {
+        "duration": "6.600000"
+      }
+    },
+    {
+      "video": "videos/medium/comparison.mp4",
+      "full_decode_passed": true,
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 3072,
+          "height": 1024,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "10/1",
+          "nb_frames": "201"
+        }
+      ],
+      "format": {
+        "duration": "20.100000"
+      }
+    }
+  ]
+}

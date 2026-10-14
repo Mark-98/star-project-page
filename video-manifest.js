@@ -1,0 +1,371 @@
+/* Video source paths. File names are intentionally not shown in the UI. */
+window.STAR_VIDEO_MANIFEST = [
+  {
+    "benchmark": "dmc",
+    "task": "walker",
+    "taskLabel": "Walker Walk",
+    "kind": "rotate",
+    "level": "easy",
+    "path": "videos/01_walker_walk_rotate_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "walker",
+    "taskLabel": "Walker Walk",
+    "kind": "rotate",
+    "level": "hard",
+    "path": "videos/02_walker_walk_rotate_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "walker",
+    "taskLabel": "Walker Walk",
+    "kind": "shift",
+    "level": "easy",
+    "path": "videos/03_walker_walk_shift_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "walker",
+    "taskLabel": "Walker Walk",
+    "kind": "shift",
+    "level": "hard",
+    "path": "videos/04_walker_walk_shift_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "walker",
+    "taskLabel": "Walker Walk",
+    "kind": "video",
+    "level": "easy",
+    "path": "videos/05_walker_walk_video_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "walker",
+    "taskLabel": "Walker Walk",
+    "kind": "video",
+    "level": "hard",
+    "path": "videos/06_walker_walk_video_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "walker",
+    "taskLabel": "Walker Walk",
+    "kind": "color",
+    "level": "easy",
+    "path": "videos/07_walker_walk_color_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "walker",
+    "taskLabel": "Walker Walk",
+    "kind": "color",
+    "level": "hard",
+    "path": "videos/08_walker_walk_color_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cheetah",
+    "taskLabel": "Cheetah Run",
+    "kind": "rotate",
+    "level": "easy",
+    "path": "videos/09_cheetah_run_rotate_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cheetah",
+    "taskLabel": "Cheetah Run",
+    "kind": "rotate",
+    "level": "hard",
+    "path": "videos/10_cheetah_run_rotate_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cheetah",
+    "taskLabel": "Cheetah Run",
+    "kind": "shift",
+    "level": "easy",
+    "path": "videos/11_cheetah_run_shift_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cheetah",
+    "taskLabel": "Cheetah Run",
+    "kind": "shift",
+    "level": "hard",
+    "path": "videos/12_cheetah_run_shift_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cheetah",
+    "taskLabel": "Cheetah Run",
+    "kind": "video",
+    "level": "easy",
+    "path": "videos/13_cheetah_run_video_easy_S400_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cheetah",
+    "taskLabel": "Cheetah Run",
+    "kind": "video",
+    "level": "hard",
+    "path": "videos/14_cheetah_run_video_hard_S400_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cheetah",
+    "taskLabel": "Cheetah Run",
+    "kind": "color",
+    "level": "easy",
+    "path": "videos/15_cheetah_run_color_easy_S400_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cheetah",
+    "taskLabel": "Cheetah Run",
+    "kind": "color",
+    "level": "hard",
+    "path": "videos/16_cheetah_run_color_hard_S400_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "finger",
+    "taskLabel": "Finger Spin",
+    "kind": "rotate",
+    "level": "easy",
+    "path": "videos/17_finger_spin_rotate_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "finger",
+    "taskLabel": "Finger Spin",
+    "kind": "rotate",
+    "level": "hard",
+    "path": "videos/18_finger_spin_rotate_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "finger",
+    "taskLabel": "Finger Spin",
+    "kind": "shift",
+    "level": "easy",
+    "path": "videos/19_finger_spin_shift_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "finger",
+    "taskLabel": "Finger Spin",
+    "kind": "shift",
+    "level": "hard",
+    "path": "videos/20_finger_spin_shift_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "finger",
+    "taskLabel": "Finger Spin",
+    "kind": "video",
+    "level": "easy",
+    "path": "videos/21_finger_spin_video_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "finger",
+    "taskLabel": "Finger Spin",
+    "kind": "video",
+    "level": "hard",
+    "path": "videos/22_finger_spin_video_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "finger",
+    "taskLabel": "Finger Spin",
+    "kind": "color",
+    "level": "easy",
+    "path": "videos/23_finger_spin_color_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "finger",
+    "taskLabel": "Finger Spin",
+    "kind": "color",
+    "level": "hard",
+    "path": "videos/24_finger_spin_color_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cartpole",
+    "taskLabel": "Cartpole SwingUp",
+    "kind": "rotate",
+    "level": "easy",
+    "path": "videos/25_cartpole_swingup_rotate_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cartpole",
+    "taskLabel": "Cartpole SwingUp",
+    "kind": "rotate",
+    "level": "hard",
+    "path": "videos/26_cartpole_swingup_rotate_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cartpole",
+    "taskLabel": "Cartpole SwingUp",
+    "kind": "shift",
+    "level": "easy",
+    "path": "videos/27_cartpole_swingup_shift_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cartpole",
+    "taskLabel": "Cartpole SwingUp",
+    "kind": "shift",
+    "level": "hard",
+    "path": "videos/28_cartpole_swingup_shift_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cartpole",
+    "taskLabel": "Cartpole SwingUp",
+    "kind": "video",
+    "level": "easy",
+    "path": "videos/29_cartpole_swingup_video_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cartpole",
+    "taskLabel": "Cartpole SwingUp",
+    "kind": "video",
+    "level": "hard",
+    "path": "videos/30_cartpole_swingup_video_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cartpole",
+    "taskLabel": "Cartpole SwingUp",
+    "kind": "color",
+    "level": "easy",
+    "path": "videos/31_cartpole_swingup_color_easy_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "dmc",
+    "task": "cartpole",
+    "taskLabel": "Cartpole SwingUp",
+    "kind": "color",
+    "level": "hard",
+    "path": "videos/32_cartpole_swingup_color_hard_S300_seed1.mp4"
+  },
+  {
+    "benchmark": "robosuite",
+    "task": "door",
+    "taskLabel": "Door",
+    "kind": "scene",
+    "level": "easy",
+    "path": "videos/Door_easy.mp4"
+  },
+  {
+    "benchmark": "robosuite",
+    "task": "door",
+    "taskLabel": "Door",
+    "kind": "scene",
+    "level": "medium",
+    "path": "videos/Door_medium.mp4"
+  },
+  {
+    "benchmark": "robosuite",
+    "task": "door",
+    "taskLabel": "Door",
+    "kind": "scene",
+    "level": "hard",
+    "path": "videos/Door_hard.mp4"
+  },
+  {
+    "benchmark": "robosuite",
+    "task": "door",
+    "taskLabel": "Door",
+    "kind": "scene",
+    "level": "video",
+    "path": "videos/Door_video.mp4"
+  },
+  {
+    "benchmark": "robosuite",
+    "task": "twoarm",
+    "taskLabel": "TwoArmPegInHole",
+    "kind": "scene",
+    "level": "easy",
+    "path": "videos/TwoArmPegInHole_easy.mp4"
+  },
+  {
+    "benchmark": "robosuite",
+    "task": "twoarm",
+    "taskLabel": "TwoArmPegInHole",
+    "kind": "scene",
+    "level": "medium",
+    "path": "videos/TwoArmPegInHole_medium.mp4"
+  },
+  {
+    "benchmark": "robosuite",
+    "task": "twoarm",
+    "taskLabel": "TwoArmPegInHole",
+    "kind": "scene",
+    "level": "hard",
+    "path": "videos/TwoArmPegInHole_hard.mp4"
+  },
+  {
+    "benchmark": "robosuite",
+    "task": "twoarm",
+    "taskLabel": "TwoArmPegInHole",
+    "kind": "scene",
+    "level": "video",
+    "path": "videos/TwoArmPegInHole_video.mp4"
+  },
+  {
+    "benchmark": "dp",
+    "task": "can",
+    "taskLabel": "PickPlaceCan",
+    "kind": "appearance",
+    "level": "easy",
+    "path": "videos/can/easy/ours_success.mp4"
+  },
+  {
+    "benchmark": "dp",
+    "task": "can",
+    "taskLabel": "PickPlaceCan",
+    "kind": "appearance",
+    "level": "medium",
+    "path": "videos/can/medium/ours_success.mp4"
+  },
+  {
+    "benchmark": "dp",
+    "task": "can",
+    "taskLabel": "PickPlaceCan",
+    "kind": "appearance",
+    "level": "hard",
+    "path": "videos/can/hard/ours_success.mp4"
+  },
+  {
+    "benchmark": "dp",
+    "task": "square",
+    "taskLabel": "NutAssemblySquare",
+    "kind": "appearance",
+    "level": "easy",
+    "path": "videos/square/easy/ours_success.mp4"
+  },
+  {
+    "benchmark": "dp",
+    "task": "square",
+    "taskLabel": "NutAssemblySquare",
+    "kind": "appearance",
+    "level": "medium",
+    "path": "videos/square/medium/ours_success.mp4"
+  },
+  {
+    "benchmark": "dp",
+    "task": "square",
+    "taskLabel": "NutAssemblySquare",
+    "kind": "appearance",
+    "level": "hard",
+    "path": "videos/square/hard/ours_success.mp4"
+  }
+];

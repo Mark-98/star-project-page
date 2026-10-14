@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "videos": [
+    {
+      "video": "videos/easy/diffusion_policy_success.mp4",
+      "full_decode_passed": true,
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 768,
+          "height": 768,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "10/1",
+          "nb_frames": "201"
+        }
+      ],
+      "format": {
+        "duration": "20.100000"
+      }
+    },
+    {
+      "video": "videos/easy/diffusion_policy_failure.mp4",
+      "full_decode_passed": true,
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 768,
+          "height": 768,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "10/1",
+          "nb_frames": "201"
+        }
+      ],
+      "format": {
+        "duration": "20.100000"
+      }
+    },
+    {
+      "video": "videos/easy/ours_success.mp4",
+      "full_decode_passed": true,
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 768,
+          "height": 768,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "10/1",
+          "nb_frames": "201"
+        }
+      ],
+      "format": {
+        "duration": "20.100000"
+      }
+    },
+    {
+      "video": "videos/easy/comparison.mp4",
+      "full_decode_passed": true,
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 2304,
+          "height": 768,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "10/1",
+          "nb_frames": "201"
+        }
+      ],
+      "format": {
+        "duration": "20.100000"
+      }
+    }
+  ]
+}
