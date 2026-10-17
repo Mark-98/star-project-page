@@ -560,6 +560,7 @@ img, video { max-width: 100%; display: block; }
 @media (max-width: 640px) {
   .hero-resource-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .hero-resource-buttons .button { min-width: 0; width: 100%; }
+  .hero-resource-buttons .button-github { grid-column: 1 / -1; }
   .hero h1 { font-size: clamp(38px, 11.6vw, 58px); }
   .hero-subtitle { font-size: 18px; }
   .paper-authors { font-size: 14px; }
