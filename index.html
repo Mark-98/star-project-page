@@ -50,27 +50,27 @@
             <a class="button button-secondary button-github" href="https://github.com/Mark-98/STAR" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
           </div>
           <div class="hero-visual hero-visual-wide" aria-label="Overview of STAR's two-stage principle">
-            <div class="hero-visual-top"><span>THE CENTRAL IDEA</span><span>01 / 02</span></div>
+            <div class="hero-visual-top"><span>STAR IN TWO STEPS</span><span>01 / 02</span></div>
             <div class="hero-visual-rail">
               <div class="hero-stage stage-one">
                 <div class="stage-count">01</div>
-                <div class="stage-head"><span class="stage-symbol">◎</span><span class="stage-kind">CONTROL LEARNING</span></div>
-                <h2>Establish the reference.</h2>
-                <p>Learn the control encoder and policy from source observations using weak augmentation.</p>
-                <div class="stage-pill-list"><span>DrQ-style RL</span><span>Forward dynamics</span></div>
+                <div class="stage-head"><span class="stage-symbol">◎</span><span class="stage-kind">LEARN CONTROL</span></div>
+                <h2>Learn to solve the task.</h2>
+                <p>Train a visual encoder and policy in the original environment with mild image augmentation.</p>
+                <div class="stage-pill-list"><span>Online RL</span><span>Dynamics prediction</span></div>
               </div>
-              <div class="hero-connector hero-connector-inline"><span>Freeze the control interface</span><span aria-hidden="true">→</span></div>
+              <div class="hero-connector hero-connector-inline"><span>Freeze encoder and policy</span><span aria-hidden="true">→</span></div>
               <div class="hero-stage stage-two">
                 <div class="stage-count">02</div>
-                <div class="stage-head"><span class="stage-symbol">◇</span><span class="stage-kind">OFFLINE ROBUSTIFICATION</span></div>
-                <h2>Recover it under shifts.</h2>
-                <p>Train only the robust encoder and aligner to match that fixed reference.</p>
-                <div class="stage-pill-list"><span>Replay buffer</span><span>Frozen controller</span></div>
+                <div class="stage-head"><span class="stage-symbol">◇</span><span class="stage-kind">BUILD VISUAL ROBUSTNESS</span></div>
+                <h2>Handle visual changes.</h2>
+                <p>Train a separate encoder to match the frozen features from visually altered replay images.</p>
+                <div class="stage-pill-list"><span>Stored training data</span><span>Fixed policy</span></div>
               </div>
             </div>
-            <div class="hero-visual-bottom"><span class="status-light"></span> SAME CONTROLLER, ROBUST VISUAL PATHWAY</div>
+            <div class="hero-visual-bottom"><span class="status-light"></span> SAME POLICY. MORE ROBUST VISION.</div>
           </div>
-          <div class="hero-footnotes"><span><span class="tick">✓</span> Fixed downstream policy</span><span><span class="tick">✓</span> Offline alignment</span><span><span class="tick">✓</span> Zero-shot evaluation</span></div>
+          <div class="hero-footnotes"><span><span class="tick">✓</span> Policy stays fixed</span><span><span class="tick">✓</span> Uses stored data</span><span><span class="tick">✓</span> No test-time training</span></div>
         </div>
       </div>
     </section>
@@ -93,19 +93,19 @@
         </div>
         <div class="motivation-comparison">
           <article class="compare-card compare-coupled">
-            <span class="compare-caption">THE COUPLED PARADIGM</span>
-            <div class="mini-flow"><span>Control objective</span><b>+</b><span>Robustness objective</span></div>
+            <span class="compare-caption">JOINT TRAINING</span>
+            <div class="mini-flow"><span>Learn control</span><b>+</b><span>Learn robustness</span></div>
             <div class="mini-flow-arrow">↓</div>
-            <div class="flow-end">One changing visual encoder</div>
-            <p>Two learning signals jointly modify the representation during actor–critic training.</p>
+            <div class="flow-end">Both update the same encoder</div>
+            <p>Robustness updates can change the features the policy is still learning to use.</p>
           </article>
           <div class="compare-arrow" aria-hidden="true">→</div>
           <article class="compare-card compare-star">
-            <span class="compare-caption">STAR: SEPARATE, THEN ALIGN</span>
-            <div class="mini-flow"><span>Learn control</span><b>→</b><span>Freeze reference</span></div>
+            <span class="compare-caption">STAR: CONTROL FIRST, ROBUSTNESS NEXT</span>
+            <div class="mini-flow"><span>Learn control</span><b>→</b><span>Freeze encoder and policy</span></div>
             <div class="mini-flow-arrow">↓</div>
-            <div class="flow-end">Align only the visual pathway</div>
-            <p>A fixed reference turns online interference into offline representation recovery.</p>
+            <div class="flow-end">Train a separate robust encoder</div>
+            <p>Match the frozen encoder's features using visually altered replay images. Keep the policy fixed.</p>
           </article>
         </div>
         <figure class="figure-panel diagnostic-panel">
